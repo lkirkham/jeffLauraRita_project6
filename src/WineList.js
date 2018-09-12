@@ -11,17 +11,19 @@ class WineList extends Component {
       visible: 6
     };
   }
+  // Load More Wines
   loadMore = () => {
     this.setState(prev => {
       return { visible: prev.visible + 6 };
     });
   }
+  // OnClick Function
   click = () => {
     this.loadMore();
     this.props.displayWines();
     this.scrollMore();
   };
-
+  // Scroll
   scrollMore = () => {
     scroll.scrollMore(450);
   };
@@ -33,10 +35,7 @@ class WineList extends Component {
           {this.props.userChoice.slice(0, this.state.visible).map((item, i) => {
             return (
               <Link to={`/products/${item.id}`}>
-                <div
-                  key={item.id}
-                  className="card wineChoice clearfix animated fadeInUp"
-                >
+                <div key={item.id} className="card wineChoice clearfix animated fadeInUp">
                   <div className="cardWrapper clearfix">
                     {item.onSale ? <p class="sale">Sale</p> : null}
                     <figure className="imageWrapper">

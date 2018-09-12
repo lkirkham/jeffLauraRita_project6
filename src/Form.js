@@ -18,7 +18,6 @@ class Form extends Component {
     scroll.scrollTo(1030);
   };
   render() {
-    // const { value } = this.state
     return (
       <section className="formContainer clearfix">
         <div className="form clearfix">
