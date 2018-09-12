@@ -12,9 +12,9 @@ import _ from "lodash";
 import firebase from "firebase";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-const apiUrl = "http://www.lcboapi.com/products";
+const apiUrl = "https://www.lcboapi.com/products";
 const apiKey =
-  "MDoxM2NjMDdlNC1iMDgwLTExZTgtYTc1NS0wYjUyYWEyN2NiMzM6TGVSYzFIVmJaMVEySE5rem1RdURPTFdGYnFKYTdZeHpkTVRi";
+  "MDpmNWYxNDQzNi1iNjJmLTExZTgtYWViNS1kYjliZGU4ZDQ1ZjU6VTNrZTZOa0NPZ0xKd1RudFdWVFZQbGxYWlhnbW1obkk5NVo4";
 const provider = new firebase.auth.GoogleAuthProvider();
 const auth = firebase.auth();
 // const dbRef = firebase.database().ref(/User/`${this.state.user.uid}`);
@@ -50,7 +50,7 @@ class App extends Component {
   getWine = pageNumber => {
     return axios({
       method: "GET",
-      url: "http://proxy.hackeryou.com",
+      url: "https://proxy.hackeryou.com",
       dataResponse: "json",
       paramsSerializer: function(params) {
         return Qs.stringify(params, { arrayFormat: "brackets" });
@@ -58,7 +58,7 @@ class App extends Component {
       params: {
         reqUrl: apiUrl,
         params: {
-          // key: apiKey,
+          access_key: apiKey,
           q: "wine",
           page: pageNumber,
           per_page: 40,

@@ -32,7 +32,7 @@ class Nav extends Component {
       this.setState({
         user: res.user
       });
-      // this.props.appstate(this.state.user);
+      this.props.appstate(this.state.user);
     });
   };
   logout = () => {
@@ -40,8 +40,12 @@ class Nav extends Component {
       this.setState({
         user: null
       });
-      // this.props.appstate(this.state.user);
-    });
+      this.props.appstate(this.state.user);
+    }), () => {
+      // Link goes in here?!?! //
+    }
+    // browserHistory.push('/');
+    this.props.history.push(`/`);
   };
   render() {
     return (
@@ -56,25 +60,23 @@ class Nav extends Component {
               {this.state.user ? (
                 <div className="loggedIn">
                   <li>
-                    {" "}
-                    <Link to="/">
-                      <i onClick={this.logout} class="fas fa-sign-out-alt" />
+                    <Link to="/" onClick={this.logout}>
+                      <i class="fas fa-sign-out-alt" />
                       <p onClick={this.logout}>Logout</p>
-                    </Link>{" "}
+                    </Link>
                   </li>
                   <li>
                     <Link to={`/user/${this.state.user.uid}`}>
                       <i class="fas fa-heart" />
                       <p>My Cellar</p>
-                    </Link>{" "}
+                    </Link>
                   </li>
                 </div>
               ) : (
                 <div className="loggedOut">
                   <li>
-                    {" "}
                     <i onClick={this.login} class="fas fa-sign-in-alt" />
-                    <p onClick={this.login}>Login</p>{" "}
+                    <p onClick={this.login}>Login</p>
                   </li>
                   {/* authentication ends */}
                 </div>

@@ -9,7 +9,7 @@ import Nav from "./Nav";
 
 const auth = firebase.auth();
 const apiKey =
-  "MDoxM2NjMDdlNC1iMDgwLTExZTgtYTc1NS0wYjUyYWEyN2NiMzM6TGVSYzFIVmJaMVEySE5rem1RdURPTFdGYnFKYTdZeHpkTVRi";
+  "MDpmNWYxNDQzNi1iNjJmLTExZTgtYWViNS1kYjliZGU4ZDQ1ZjU6VTNrZTZOa0NPZ0xKd1RudFdWVFZQbGxYWlhnbW1obkk5NVo4";
 
 class Wineinfo extends Component {
   constructor() {
@@ -61,21 +61,21 @@ class Wineinfo extends Component {
   stores = () =>
     axios({
       method: "GET",
-      url: "http://proxy.hackeryou.com",
+      url: "https://proxy.hackeryou.com",
       dataResponse: "json",
       paramsSerializer: function(params) {
         return Qs.stringify(params, { arrayFormat: "brackets" });
       },
       params: {
-        reqUrl: 'http://www.lcboapi.com/stores',
+        reqUrl: 'https://www.lcboapi.com/stores',
         params: {
-          // access_key: apiKey,
+          access_key: apiKey,
           per_page: 5,
           lat: `${this.state.latitude}`,
           lon: `${this.state.longitude}`,
         },
         proxyHeaders: {
-          'Authorization': `Token "MDoxM2NjMDdlNC1iMDgwLTExZTgtYTc1NS0wYjUyYWEyN2NiMzM6TGVSYzFIVmJaMVEySE5rem1RdURPTFdGYnFKYTdZeHpkTVRi"`
+          'Authorization': `Token "MDpmNWYxNDQzNi1iNjJmLTExZTgtYWViNS1kYjliZGU4ZDQ1ZjU6VTNrZTZOa0NPZ0xKd1RudFdWVFZQbGxYWlhnbW1obkk5NVo4"`
         }
       },
       xmlToJSON: false
@@ -93,19 +93,20 @@ class Wineinfo extends Component {
           const store = obj.storeId;
           return axios({
             method: "GET",
-            url: "http://proxy.hackeryou.com",
+            url: "https://proxy.hackeryou.com",
             dataResponse: "json",
             paramsSerializer: function(params) {
               return Qs.stringify(params, { arrayFormat: "brackets" });
             },
             params: {
-              reqUrl: `http://www.lcboapi.com/inventories`,
+              reqUrl: `https://www.lcboapi.com/inventories`,
               params: {
+                access_key: apiKey,
                 store_id: `${store}`,
                 product_id: `${this.props.match.params.wine_id}`
               },
               proxyHeaders: {
-                Authorization: `Token "MDoxM2NjMDdlNC1iMDgwLTExZTgtYTc1NS0wYjUyYWEyN2NiMzM6TGVSYzFIVmJaMVEySE5rem1RdURPTFdGYnFKYTdZeHpkTVRi"`
+                Authorization: `Token "MDpmNWYxNDQzNi1iNjJmLTExZTgtYWViNS1kYjliZGU4ZDQ1ZjU6VTNrZTZOa0NPZ0xKd1RudFdWVFZQbGxYWlhnbW1obkk5NVo4"`
               }
             },
             xmlToJSON: false
@@ -138,22 +139,23 @@ class Wineinfo extends Component {
   componentDidMount() {
     axios({
       method: "GET",
-      url: "http://proxy.hackeryou.com",
+      url: "https://proxy.hackeryou.com",
       dataResponse: "json",
       paramsSerializer: function(params) {
         return Qs.stringify(params, { arrayFormat: "brackets" });
       },
       params: {
-        reqUrl: `http://www.lcboapi.com/products/${
+        reqUrl: `https://www.lcboapi.com/products/${
           this.props.match.params.wine_id
         }`,
         params: {
+          access_key: apiKey,
           q: "wine",
           per_page: 40,
           where_not: "is_dead, is_discontinued"
         },
         proxyHeaders: {
-          Authorization: `Token "MDoxM2NjMDdlNC1iMDgwLTExZTgtYTc1NS0wYjUyYWEyN2NiMzM6TGVSYzFIVmJaMVEySE5rem1RdURPTFdGYnFKYTdZeHpkTVRi"`
+          Authorization: `Token "MDpmNWYxNDQzNi1iNjJmLTExZTgtYWViNS1kYjliZGU4ZDQ1ZjU6VTNrZTZOa0NPZ0xKd1RudFdWVFZQbGxYWlhnbW1obkk5NVo4"`
         }
       },
       xmlToJSON: false
