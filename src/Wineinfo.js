@@ -9,7 +9,7 @@ import Nav from "./Nav";
 
 const auth = firebase.auth();
 const apiKey =
-  "MDoxM2NjMDdlNC1iMDgwLTExZTgtYTc1NS0wYjUyYWEyN2NiMzM6TGVSYzFIVmJaMVEySE5rem1RdURPTFdGYnFKYTdZeHpkTVRi";
+  "MDpmNWYxNDQzNi1iNjJmLTExZTgtYWViNS1kYjliZGU4ZDQ1ZjU6VTNrZTZOa0NPZ0xKd1RudFdWVFZQbGxYWlhnbW1obkk5NVo4";
 
 class Wineinfo extends Component {
   constructor() {
@@ -24,12 +24,14 @@ class Wineinfo extends Component {
     };
   }
 
+  // Setting State From Nav 
   appstate = user => {
     this.setState({
       user: user
     });
   };
 
+  // Getting Location of User
   geolocation = () => {
     navigator.geolocation.getCurrentPosition(position => {
       this.setState({
@@ -41,6 +43,7 @@ class Wineinfo extends Component {
     });
   };
 
+  // Sweet Alerts
   addToFavs = () => {
     swal(
       "Added To Your Cellar!",
@@ -58,24 +61,25 @@ class Wineinfo extends Component {
     );
   };
 
+  // Getting Stores from Request
   stores = () =>
     axios({
       method: "GET",
-      url: "http://proxy.hackeryou.com",
+      url: "https://proxy.hackeryou.com",
       dataResponse: "json",
       paramsSerializer: function(params) {
         return Qs.stringify(params, { arrayFormat: "brackets" });
       },
       params: {
-        reqUrl: 'http://www.lcboapi.com/stores',
+        reqUrl: 'https://www.lcboapi.com/stores',
         params: {
-          // access_key: apiKey,
+          access_key: apiKey,
           per_page: 5,
           lat: `${this.state.latitude}`,
           lon: `${this.state.longitude}`,
         },
         proxyHeaders: {
-          'Authorization': `Token "MDoxM2NjMDdlNC1iMDgwLTExZTgtYTc1NS0wYjUyYWEyN2NiMzM6TGVSYzFIVmJaMVEySE5rem1RdURPTFdGYnFKYTdZeHpkTVRi"`
+          'Authorization': `Token "MDpmNWYxNDQzNi1iNjJmLTExZTgtYWViNS1kYjliZGU4ZDQ1ZjU6VTNrZTZOa0NPZ0xKd1RudFdWVFZQbGxYWlhnbW1obkk5NVo4"`
         }
       },
       xmlToJSON: false
@@ -93,19 +97,20 @@ class Wineinfo extends Component {
           const store = obj.storeId;
           return axios({
             method: "GET",
-            url: "http://proxy.hackeryou.com",
+            url: "https://proxy.hackeryou.com",
             dataResponse: "json",
             paramsSerializer: function(params) {
               return Qs.stringify(params, { arrayFormat: "brackets" });
             },
             params: {
-              reqUrl: `http://www.lcboapi.com/inventories`,
+              reqUrl: `https://www.lcboapi.com/inventories`,
               params: {
+                access_key: apiKey,
                 store_id: `${store}`,
                 product_id: `${this.props.match.params.wine_id}`
               },
               proxyHeaders: {
-                Authorization: `Token "MDoxM2NjMDdlNC1iMDgwLTExZTgtYTc1NS0wYjUyYWEyN2NiMzM6TGVSYzFIVmJaMVEySE5rem1RdURPTFdGYnFKYTdZeHpkTVRi"`
+                Authorization: `Token "MDpmNWYxNDQzNi1iNjJmLTExZTgtYWViNS1kYjliZGU4ZDQ1ZjU6VTNrZTZOa0NPZ0xKd1RudFdWVFZQbGxYWlhnbW1obkk5NVo4"`
               }
             },
             xmlToJSON: false
@@ -138,22 +143,23 @@ class Wineinfo extends Component {
   componentDidMount() {
     axios({
       method: "GET",
-      url: "http://proxy.hackeryou.com",
+      url: "https://proxy.hackeryou.com",
       dataResponse: "json",
       paramsSerializer: function(params) {
         return Qs.stringify(params, { arrayFormat: "brackets" });
       },
       params: {
-        reqUrl: `http://www.lcboapi.com/products/${
+        reqUrl: `https://www.lcboapi.com/products/${
           this.props.match.params.wine_id
         }`,
         params: {
+          access_key: apiKey,
           q: "wine",
           per_page: 40,
           where_not: "is_dead, is_discontinued"
         },
         proxyHeaders: {
-          Authorization: `Token "MDoxM2NjMDdlNC1iMDgwLTExZTgtYTc1NS0wYjUyYWEyN2NiMzM6TGVSYzFIVmJaMVEySE5rem1RdURPTFdGYnFKYTdZeHpkTVRi"`
+          Authorization: `Token "MDpmNWYxNDQzNi1iNjJmLTExZTgtYWViNS1kYjliZGU4ZDQ1ZjU6VTNrZTZOa0NPZ0xKd1RudFdWVFZQbGxYWlhnbW1obkk5NVo4"`
         }
       },
       xmlToJSON: false
@@ -186,10 +192,10 @@ class Wineinfo extends Component {
               ) : (
                 <div className="priceWrapper">
                   <p>
-                    <span className="regular">{`$${this.state.wine
-                      .regular_price_in_cents / 100}`}</span>
-                    <span className="sale">{`$${this.state.wine.price_in_cents /
-                      100}`}</span>
+                    <span className="regular">{`$${(this.state.wine
+                      .regular_price_in_cents / 100).toFixed(2)}`}</span>
+                    <span className="sale">{`$${(this.state.wine.price_in_cents /
+                      100).toFixed(2)}`}</span>
                     <span className="bottle">/bottle</span>
                   </p>
                 </div>
@@ -212,7 +218,7 @@ class Wineinfo extends Component {
                 </li>
                 <li>
                   <span>Price Per Litre: </span>
-                  {`${this.state.wine.price_per_liter_in_cents / 100}`}
+                  {`$${(this.state.wine.price_per_liter_in_cents / 100).toFixed(2)}`}
                 </li>
                 <li>
                   <span>Alcohol/Vol: </span>
@@ -231,10 +237,10 @@ class Wineinfo extends Component {
               <button onClick={this.geolocation} className="btn">
                 <i class="fas fa-map-marker-alt" /> Find near me
               </button>
-            </div>{" "}
+            </div>
             {/* closes content wrapper */}
             <DisplayStock arrayOfStock={this.state.arrayOfStock} />
-          </div>{" "}
+          </div>
           {/* closes content */}
         </div>
       </div>
