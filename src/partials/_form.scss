@@ -6,7 +6,6 @@
     margin-bottom: 50px;
     float: left;
     background-color: lightgrey;
-    // box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     .formWrapper {
       width: 360px;
       float: right;
@@ -84,15 +83,9 @@
     width: 60%;
     float: right;
     height: 300px;
-    // box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     background-color: $grey;
-    // background-image: url(./assets/friendsWine.jpg);
-    // background-position: 50% 25%;
-    // background-repeat: no-repeat;
-    // background-size: cover;
     .formQuoteScreen {
       height: 300px;
-      // background-color: rgba(0, 0, 0, 0.2);
       .quote {
         max-width: 720px;
         margin: 0 auto;
@@ -108,22 +101,22 @@
       .quote:after {
         font-family: "Font Awesome 5 Free";
         font-weight: 900;
-          content: "\f10e";
-          opacity: 0.25;
-          font-size: 3rem;
-          position: relative;
-          bottom: -5px;
-          right: -5px;
+        content: "\f10e";
+        opacity: 0.25;
+        font-size: 3rem;
+        position: relative;
+        bottom: -5px;
+        right: -5px;
       }
       .quote:before {
         font-family: "Font Awesome 5 Free";
         font-weight: 900;
-          content: "\f10d ";
-          opacity: 0.25;
-          font-size: 3rem;
-          position: relative;
-          bottom: 5px;
-          left: -5px;
+        content: "\f10d ";
+        opacity: 0.25;
+        font-size: 3rem;
+        position: relative;
+        bottom: 5px;
+        left: -5px;
       }
     }
   }
@@ -145,42 +138,6 @@
   top: 8px;
   border-radius: 100%;
 }
-
-// .slider {
-//     -webkit-appearance: none;
-//     width: 100%;
-//     height: 25px;
-//     background: #d3d3d3;
-//     outline: none;
-//     opacity: 0.7;
-//     -webkit-transition: .2s;
-//     transition: opacity .2s;
-// }
-
-// .slider:hover {
-//     opacity: 1;
-// }
-
-// .slider::-webkit-slider-thumb {
-//     -webkit-appearance: none;
-//     appearance: none;
-//     width: 25px;
-//     height: 25px;
-//     background: #4CAF50;
-//     cursor: pointer;
-// }
-
-// .slider::-moz-range-thumb {
-//     width: 25px;
-//     height: 25px;
-//     background: #4CAF50;
-//     cursor: pointer;
-// }
-
-// .priceRangeSelect,
-// .slidecontainer {
-//     width: 100%; /* Width of the outside container */
-// }
 
 ///////////////////////////////////////////////
 // FORM MEDIA QUERIES

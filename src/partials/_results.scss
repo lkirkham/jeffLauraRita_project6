@@ -1,4 +1,4 @@
-.results{
+.results {
   padding-bottom: 0px;
 }
 
@@ -9,10 +9,9 @@
   clear: both;
   text-align: center;
   .btn {
-    margin:25px;
+    margin: 25px;
   }
   .wrapper {
-    // margin: 0px auto;
     .sale {
       position: absolute;
       background-color: $purple;
@@ -49,13 +48,11 @@
         .cardSide {
           float: left;
           width: calc(55% - 4%);
-          // margin:2% 2%;
           height: 100%;
           padding: 0 0 0 8px;
           .wineTitle {
             h3 {
               display: block;
-              // display: -webkit-box;
               max-width: 100%;
               height: calc((3 * 2rem) + 0.8rem);
               margin: 10px auto;
@@ -210,7 +207,7 @@
 
   .savedList {
     header nav ul li i {
-    color: $green;
+      color: $green;
     }
     .savedListBtns {
       bottom: 12px;

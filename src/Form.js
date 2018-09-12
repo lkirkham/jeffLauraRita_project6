@@ -25,36 +25,6 @@ class Form extends Component {
           <div className="formWrapper">
             <form onSubmit={this.props.displayWines}>
               <div className="filters clearfix">
-                {/* <input
-                type="range"
-                min="1"
-                max="4"
-                value={this.state.value}
-                className="slider"
-                onChange={this.handleChangePrice}
-                id="priceRange"
-                step="1"
-              />
-            </div>
-  <input 
-      id="typeinp" 
-      type="range" 
-      min="0" max="5" 
-      value={this.state.value} 
-      onChange={this.handleChangePrice}
-      step="1"/> */}
-
-                {/* <div className='slider'>
-        <Slider
-          min={1}
-          max={4}
-          value={value}
-          onChangeStart={this.handleChangeStart}
-          onChange={this.handleChange}
-          onChangeComplete={this.handleChangeComplete}
-        />
-        <div className='value'>{value}</div>
-      </div> */}
                 <fieldset className="priceSelect">
                   <h3>Set your budget:</h3>
                   <ul>

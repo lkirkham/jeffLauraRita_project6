@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "animate.css/animate.min.css";
-import { animateScroll as scroll } from 'react-scroll'
+import { animateScroll as scroll } from "react-scroll";
 
 class WineList extends Component {
   constructor() {
@@ -23,16 +23,14 @@ class WineList extends Component {
   };
 
   scrollMore = () => {
-  scroll.scrollMore(450);
-}
+    scroll.scrollMore(450);
+  };
 
   render() {
     return (
       <div className="results">
         <div className="wrapper clearfix">
           {this.props.userChoice.slice(0, this.state.visible).map((item, i) => {
-            // console.log(this.props.random)
-            // console.log(item);
             return (
               <Link to={`/products/${item.id}`}>
                 <div
@@ -51,8 +49,7 @@ class WineList extends Component {
                     <div className="cardSide">
                       <div className="wineTitle">
                         <h3>{item.name}</h3>
-                      </div>{" "}
-                      {/* closes wine title */}
+                      </div>
                       <div className="winePriceWrapper">
                         <p className="winePrice">
                           {`${item.price}`}
@@ -60,13 +57,9 @@ class WineList extends Component {
                         </p>
                       </div>
                       <button className="btn smallBtn">See Details</button>{" "}
-                      {/* closes wine price wrapper */}
-                    </div>{" "}
-                    {/* closes card side */}
-                  </div>{" "}
-                  {/* closes card wrapper */}
-                </div>{" "}
-                {/* closes card */}
+                    </div>
+                  </div>
+                </div>
               </Link>
             );
           })}

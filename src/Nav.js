@@ -42,6 +42,7 @@ class Nav extends Component {
       this.setState({
         user: null
       });
+    });
       this.props.appstate(this.state.user);
     }), () => {
       // Link goes in here?!?! //

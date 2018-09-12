@@ -134,13 +134,6 @@
 }
 
 @media (max-width: 1080px) {
-  // .wineInfo .wrapper .imageWrapper, .wineInfo .wrapper .content {
-  //       width: 50%;
-  // }
-  // .wineInfo .wrapper .imageWrapper {
-  // width: 50%;
-  // }
-
   .wineInfo {
     margin-bottom: 50px;
   }
@@ -204,23 +197,6 @@
             margin: 0 auto;
             width: 450px;
           }
-
-          // .btn {
-          //   margin-right: 20px;
-          //   &:hover {
-          //     color: $teal;
-          //   }
-          // }
-          // .btnAlt {
-          //   margin-top: 10px;
-          //   background-color: transparent;
-          //   border: 2px solid $grey;
-          //   color: $grey;
-          //   &:hover {
-          //     background-color: $grey;
-          //     color: $white;
-          //   }
-          // }
         }
       }
     }
