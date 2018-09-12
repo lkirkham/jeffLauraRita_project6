@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { animateScroll as scroll } from "react-scroll";
 
+let scrollToElement = require('scroll-to-element');
+scrollToElement('#id');
+
 class Form extends Component {
   constructor() {
     super();
@@ -14,9 +17,17 @@ class Form extends Component {
     this.scrollTo();
   };
 
+  // scrollTo = () => {
+  //   scroll.scrollTo(1030);
+  // };
+
   scrollTo = () => {
-    scroll.scrollTo(1030);
-  };
+    scrollToElement('.results', {
+      offset: 0,
+      ease: 'outQuad',
+      duration: 1000
+    });
+  }
   render() {
     return (
       <section className="formContainer clearfix">
