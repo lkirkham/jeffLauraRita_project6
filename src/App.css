@@ -319,7 +319,8 @@ header {
         transition: transform 0.5s; }
         header nav ul .loggedIn li p:hover,
         header nav ul .loggedOut li p:hover {
-          transform: scale(1.2); }
+          transform: scale(1.2);
+          cursor: pointer; }
 
 .hero {
   background-image: url(./assets/heroGirl.jpg);

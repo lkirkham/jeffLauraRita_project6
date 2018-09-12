@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Nav from "./Nav";
-import { animateScroll as scroll } from "react-scroll";
+// import { animateScroll as scroll } from "react-scroll";
+
+let scrollToElement = require('scroll-to-element');
+scrollToElement('#id');
 
 class Header extends Component {
   constructor() {
@@ -10,9 +13,17 @@ class Header extends Component {
       user: null
     };
   }
+  // scrollTo = () => {
+  //   scroll.scrollTo(730);
+  // };
+
   scrollTo = () => {
-    scroll.scrollTo(730);
-  };
+    scrollToElement('.formContainer', {
+      offset: 0,
+      ease: 'outQuad',
+      duration: 1000
+    });
+  }
   render() {
     return (
       <div className="headerSection clearfix">
