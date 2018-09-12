@@ -765,6 +765,7 @@ header {
         display: block;
         width: 98%; }
     .wineInfo .wrapper .content {
+      padding-bottom: 50px;
       float: left;
       width: 60%; }
       .wineInfo .wrapper .content .contentWrapper {
