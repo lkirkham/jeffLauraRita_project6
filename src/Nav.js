@@ -15,11 +15,9 @@ class Nav extends Component {
   componentDidMount() {
     auth.onAuthStateChanged(user => {
       if (user) {
-        this.setState(
-          {
-            user
-          },
-          () => {
+        this.setState({
+          user
+        }, () => {
             this.dbref = firebase.database().ref(this.state.user.uid);
           }
         );
@@ -41,10 +39,7 @@ class Nav extends Component {
         user: null
       });
       this.props.appstate(this.state.user);
-    }), () => {
-      // Link goes in here?!?! //
-    }
-    // browserHistory.push('/');
+    }), () => {}
     this.props.history.push(`/`);
   };
   render() {

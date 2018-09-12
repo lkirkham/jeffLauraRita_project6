@@ -24,12 +24,14 @@ class Wineinfo extends Component {
     };
   }
 
+  // Setting State From Nav 
   appstate = user => {
     this.setState({
       user: user
     });
   };
 
+  // Getting Location of User
   geolocation = () => {
     navigator.geolocation.getCurrentPosition(position => {
       this.setState({
@@ -41,6 +43,7 @@ class Wineinfo extends Component {
     });
   };
 
+  // Sweet Alerts
   addToFavs = () => {
     swal(
       "Added To Your Cellar!",
@@ -58,6 +61,7 @@ class Wineinfo extends Component {
     );
   };
 
+  // Getting Stores from Request
   stores = () =>
     axios({
       method: "GET",
@@ -188,10 +192,10 @@ class Wineinfo extends Component {
               ) : (
                 <div className="priceWrapper">
                   <p>
-                    <span className="regular">{`$${this.state.wine
-                      .regular_price_in_cents / 100}`}</span>
-                    <span className="sale">{`$${this.state.wine.price_in_cents /
-                      100}`}</span>
+                    <span className="regular">{`$${(this.state.wine
+                      .regular_price_in_cents / 100).toFixed(2)}`}</span>
+                    <span className="sale">{`$${(this.state.wine.price_in_cents /
+                      100).toFixed(2)}`}</span>
                     <span className="bottle">/bottle</span>
                   </p>
                 </div>
@@ -214,7 +218,7 @@ class Wineinfo extends Component {
                 </li>
                 <li>
                   <span>Price Per Litre: </span>
-                  {`${this.state.wine.price_per_liter_in_cents / 100}`}
+                  {`$${(this.state.wine.price_per_liter_in_cents / 100).toFixed(2)}`}
                 </li>
                 <li>
                   <span>Alcohol/Vol: </span>

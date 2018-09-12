@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 class DisplayStock extends Component {
   render() {
-    console.log(this.props.arrayOfStock);
     return (
       <div>
         {this.props.arrayOfStock.map(store => {
@@ -13,13 +12,8 @@ class DisplayStock extends Component {
                 <span>In Stock: </span> {store.stockAmount} bottles available
               </p>
               <p>
-                <span>Address: </span>{" "}
-                <a
-                  href={`https://www.google.ca/maps/place/${
-                    store.storeAddress
-                  }`}
-                  target="_blank"
-                >
+                <span>Address: </span>
+                <a href={`https://www.google.ca/maps/place/${store.storeAddress}`} target="_blank">
                   {store.storeAddress}
                 </a>
               </p>
