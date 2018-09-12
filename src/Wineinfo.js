@@ -233,10 +233,10 @@ class Wineinfo extends Component {
               <button onClick={this.geolocation} className="btn">
                 <i class="fas fa-map-marker-alt" /> Find near me
               </button>
-            </div>{" "}
+            </div>
             {/* closes content wrapper */}
             <DisplayStock arrayOfStock={this.state.arrayOfStock} />
-          </div>{" "}
+          </div>
           {/* closes content */}
         </div>
       </div>
