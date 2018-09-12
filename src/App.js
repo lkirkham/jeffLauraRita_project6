@@ -58,13 +58,14 @@ class App extends Component {
       params: {
         reqUrl: apiUrl,
         params: {
+          // key: apiKey,
           q: "wine",
           page: pageNumber,
           per_page: 40,
-          where_not: "is_dead, is_discontinued"
+          where_not: "is_dead, is_discontinued",
         },
         proxyHeaders: {
-          Authorization: `Token ${apiKey}`
+          'Authorization': `Token ${apiKey}`
         },
         xmlToJSON: false
       }
@@ -83,11 +84,11 @@ class App extends Component {
     });
   };
 
-  // appstate = user => {
-  //   this.setState({
-  //     user: user
-  //   });
-  // };
+  appstate = user => {
+    this.setState({
+      user: user
+    })
+  };
 
   favourites = wine => {
     this.dbref.push({
@@ -165,7 +166,6 @@ class App extends Component {
           return [...acc, ...curr];
         })
         .filter(item => {
-          console.log(item);
           return (
             item.name !==
               "Castelli del Grevepesa Castelgreve Chianti Classico 2016" &&
@@ -421,10 +421,11 @@ class App extends Component {
     return (
       <Router basename='/project6'>
         <div className="App">
+
           <Route
             exact
             path="/"
-            render={props => <Header {...props} />}
+            render={props => <Header {...props} appstate={this.appstate} />}
           />
           <section>
             <Route
@@ -461,6 +462,7 @@ class App extends Component {
                   {...props}
                   user={this.state.user}
                   favourites={this.favourites}
+                  appstate={this.appstate}
                 />
               )}
             />
@@ -472,6 +474,7 @@ class App extends Component {
                     {...props}
                     wineInfo={this.state.wineInfo}
                     deleteWine={this.deleteWine}
+                    appstate={this.appstate}
                   />
                 )}
               />

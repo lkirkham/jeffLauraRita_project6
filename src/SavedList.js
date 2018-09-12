@@ -3,10 +3,16 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Nav from './Nav'
 
 class SavedList extends Component {
+  constructor() {
+    super();
+      this.state = {
+        user: null
+      }
+    }
   render() {
     return (
       <section className="savedList">
-        <Nav />
+        <Nav appstate={this.props.appstate} />
         <div className="wrapper clearfix">
           <h2 className="myCellar">My Cellar</h2>
           {this.props.wineInfo.length == 0 ? (

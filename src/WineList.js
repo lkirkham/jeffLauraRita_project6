@@ -11,7 +11,7 @@ class WineList extends Component {
       visible: 6
     };
   }
-  loadMore() {
+  loadMore = () => {
     this.setState(prev => {
       return { visible: prev.visible + 6 };
     });

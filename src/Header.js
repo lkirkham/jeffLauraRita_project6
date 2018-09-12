@@ -20,7 +20,7 @@ class Header extends Component {
   render() {
     return (
       <div className="headerSection clearfix">
-        <Nav user={this.state.user} />
+        <Nav user={this.state.user} appstate={this.props.appstate} />
         <section className="hero">
           <div className="heroScreen">
             <div className="wrapper">

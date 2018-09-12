@@ -8,6 +8,8 @@ import DisplayStock from "./DisplayStock";
 import Nav from "./Nav";
 
 const auth = firebase.auth();
+const apiKey =
+  "MDoxM2NjMDdlNC1iMDgwLTExZTgtYTc1NS0wYjUyYWEyN2NiMzM6TGVSYzFIVmJaMVEySE5rem1RdURPTFdGYnFKYTdZeHpkTVRi";
 
 class Wineinfo extends Component {
   constructor() {
@@ -21,6 +23,12 @@ class Wineinfo extends Component {
       arrayOfStock: []
     };
   }
+
+  appstate = user => {
+    this.setState({
+      user: user
+    });
+  };
 
   geolocation = () => {
     navigator.geolocation.getCurrentPosition(position => {
@@ -55,14 +63,15 @@ class Wineinfo extends Component {
         return Qs.stringify(params, { arrayFormat: "brackets" });
       },
       params: {
-        reqUrl: `http://www.lcboapi.com/stores`,
+        reqUrl: 'http://www.lcboapi.com/stores',
         params: {
+          // access_key: apiKey,
           per_page: 5,
           lat: `${this.state.latitude}`,
-          lon: `${this.state.longitude}`
+          lon: `${this.state.longitude}`,
         },
         proxyHeaders: {
-          Authorization: `Token "MDoxM2NjMDdlNC1iMDgwLTExZTgtYTc1NS0wYjUyYWEyN2NiMzM6TGVSYzFIVmJaMVEySE5rem1RdURPTFdGYnFKYTdZeHpkTVRi"`
+          'Authorization': `Token "MDoxM2NjMDdlNC1iMDgwLTExZTgtYTc1NS0wYjUyYWEyN2NiMzM6TGVSYzFIVmJaMVEySE5rem1RdURPTFdGYnFKYTdZeHpkTVRi"`
         }
       },
       xmlToJSON: false
@@ -154,7 +163,7 @@ class Wineinfo extends Component {
   render() {
     return (
       <div className="wineInfo clearfix">
-        <Nav />
+        <Nav appstate={this.props.appstate}/>
         <div className="wrapper">
           <figure className="imageWrapper">
             <img src={this.state.wine.image_url} alt={this.state.wine.name} />
@@ -185,12 +194,12 @@ class Wineinfo extends Component {
                 this.state.wine.tasting_note
               }`}</p>
               <div className="wineServingSuggestBox">
-                <p className="wineServingSuggestTitle">Serving Suggestion</p>
-                {this.state.wine.serving_suggestion !== null ? (
-                  <p className="wineServingSuggest">{`${
-                    this.state.wine.serving_suggestion
-                  }`}</p>
-                ) : null}
+                  {this.state.wine.serving_suggestion !== null ? ( 
+                  <div>
+                    <p className="wineServingSuggestTitle">Serving Suggestion</p>
+                    <p className="wineServingSuggest">{`${this.state.wine.serving_suggestion}`}</p>
+                  </div>
+                  ) : null}
               </div>
               <ul>
                 <li>
