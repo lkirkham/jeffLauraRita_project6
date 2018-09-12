@@ -397,7 +397,7 @@ class App extends Component {
 
   render() {
     return (
-      <Router basename='/kirsolee'>
+      <Router>
         <div className="App">
           <Route exact path="/"
             render={props => <Header {...props} appstate={this.appstate} />}
