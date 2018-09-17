@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { animateScroll as scroll } from "react-scroll";
+// import { animateScroll as scroll } from "react-scroll";
 
 let scrollToElement = require('scroll-to-element');
 scrollToElement('#id');
@@ -29,8 +29,7 @@ class Form extends Component {
     });
   }
   render() {
-    return (
-      <section className="formContainer clearfix">
+    return <section className="formContainer clearfix">
         <div className="form clearfix">
           <div className="formWrapper">
             <form onSubmit={this.props.displayWines}>
@@ -40,49 +39,25 @@ class Form extends Component {
                   <ul>
                     <li>
                       <label className="radio inline" htmlFor="$">
-                        <input
-                          onClick={this.props.handleChangePrice}
-                          name="price"
-                          id="$"
-                          type="radio"
-                          value={this.state.price}
-                        />
+                        <input onClick={this.props.handleChangePrice} name="price" id="$" type="radio" value={this.state.price} />
                         <span>&nbsp;$</span>
                       </label>
                     </li>
                     <li>
                       <label className="radio inline" htmlFor="$$">
-                        <input
-                          onClick={this.props.handleChangePrice}
-                          name="price"
-                          id="$$"
-                          type="radio"
-                          value={this.state.price}
-                        />
+                        <input onClick={this.props.handleChangePrice} name="price" id="$$" type="radio" value={this.state.price} />
                         <span>&nbsp;$$</span>
                       </label>
                     </li>
                     <li>
                       <label className="radio inline" htmlFor="$$$">
-                        <input
-                          onClick={this.props.handleChangePrice}
-                          name="price"
-                          id="$$$"
-                          type="radio"
-                          value={this.state.price}
-                        />
+                        <input onClick={this.props.handleChangePrice} name="price" id="$$$" type="radio" value={this.state.price} />
                         <span>&nbsp;$$$</span>
                       </label>
                     </li>
                     <li>
                       <label className="radio inline" htmlFor="$$$$">
-                        <input
-                          onClick={this.props.handleChangePrice}
-                          name="price"
-                          id="$$$$"
-                          type="radio"
-                          value={this.state.price}
-                        />
+                        <input onClick={this.props.handleChangePrice} name="price" id="$$$$" type="radio" value={this.state.price} />
                         <span>&nbsp;$$$$</span>
                       </label>
                     </li>
@@ -94,37 +69,19 @@ class Form extends Component {
                   <ul>
                     <li>
                       <label className="radio inline" htmlFor="red">
-                        <input
-                          onChange={this.props.handleChangeColour}
-                          name="colour"
-                          id="red"
-                          type="radio"
-                          value={this.state.colour}
-                        />
+                        <input onChange={this.props.handleChangeColour} name="colour" id="red" type="radio" value={this.state.colour} />
                         <span>&nbsp;Red</span>
                       </label>
                     </li>
                     <li>
                       <label className="radio inline" htmlFor="white">
-                        <input
-                          onChange={this.props.handleChangeColour}
-                          name="colour"
-                          id="white"
-                          type="radio"
-                          value={this.state.colour}
-                        />
+                        <input onChange={this.props.handleChangeColour} name="colour" id="white" type="radio" value={this.state.colour} />
                         <span>&nbsp;White</span>
                       </label>
                     </li>
                     <li>
                       <label className="radio inline" htmlFor="all">
-                        <input
-                          onChange={this.props.handleChangeColour}
-                          name="colour"
-                          id="all"
-                          type="radio"
-                          value={this.state.colour}
-                        />
+                        <input onChange={this.props.handleChangeColour} name="colour" id="all" type="radio" value={this.state.colour} />
                         <span>&nbsp;All</span>
                       </label>
                     </li>
@@ -132,7 +89,7 @@ class Form extends Component {
                 </fieldset>
               </div>
             </form>
-            <button className="btn filterBtn" onClick={this.clicking}>
+            <button className="btn btnLightBg" onClick={this.clicking}>
               Bottoms Up
             </button>
           </div>
@@ -140,13 +97,14 @@ class Form extends Component {
         <div className="formQuote">
           <div className="formQuoteScreen">
             <h2 className="quote">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor.{" "}
+              {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor. */}
+              Forget grown-up wine. With <span className="quotePlonk">plonk</span>, the sweetest bouquet of all is the taste of a few pence saved.
             </h2>
+            <p className="quoteSource">Max Davidson, The Telegraph</p>
           </div>
         </div>
-      </section>
-    );
+      </section>;
   }
 }
 

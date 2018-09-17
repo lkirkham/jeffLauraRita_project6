@@ -1,10 +1,10 @@
 header {
   float: left;
   width: 100%;
-  padding-top: 15px;
+  padding-top: 25px;
   h1 {
     float: left;
-    color: $purple;
+    color: $white;
     margin: 0;
   }
   nav {
@@ -25,9 +25,10 @@ header {
           p {
             color: $white;
             margin: 0;
-            transition: transform 0.5s;
+            // transition: transform 0.5s;
             &:hover {
-              transform: scale(1.2);
+              // transform: scale(1.2);
+
               cursor: pointer;
             }
           }
@@ -39,7 +40,7 @@ header {
 
 .hero {
   // background-image: url(./assets/heroGirl.jpg);
-  background-image: url(./assets/heroGirl.jpg);
+  background-image: url(./assets/heroPool3.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -47,18 +48,24 @@ header {
   height: 100vh;
   .heroScreen {
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.25);
     .wrapper {
+      clear:both;
       height: 100vh;
+      display:flex;
+      justify-content: center;
+      align-items: center;
       .heroContent {
-        float: right;
-        width: 45%;
+        // float: right;
+        width: 60%;
+        text-align: center;
         position: relative;
-        margin-right: 0;
-        top: 50%;
+        top: -100px;
+        // margin-right: 0;
+        // top: 50%;
         // right: - 100px;
-        right: 0px;
-        transform: translateY(-50%);
+        // right: 0px;
+        // transform: translateY(-50%);
         h2.heroHeading {
           color: $white;
           margin: 15px 0;
@@ -85,10 +92,34 @@ header {
 /* Landscape phone to portrait tablet */
 @media (max-width: 768px) {
   header {
-    padding-top: 15px;
-
+    padding-top: 25px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
     nav {
       padding-top: 0px;
+            ul {
+        .loggedIn,
+        .loggedOut {
+          li {
+            padding:10px;
+            margin:0;
+            transition: transform 0.5s;
+            &:hover {
+              transform: scale(1.2);
+            }
+            i {
+              display: inline;
+              color: $white;
+              font-size: 2rem;
+            }
+          }
+          p {
+            display: none;
+            margin: 0;
+          }
+        }
+      }
     }
   }
 
@@ -123,40 +154,74 @@ header {
       padding-left: 15px;
     }
     nav {
-      ul {
-        .loggedIn,
-        .loggedOut {
-          li {
-            transition: transform 0.5s;
-            &:hover {
-              transform: scale(1.2);
-            }
-            i {
-              display: inline;
-              color: $white;
-              font-size: 2.5rem;
-            }
-          }
-          p {
-            display: none;
-            margin: 0;
-          }
-        }
-      }
+      // ul {
+      //   .loggedIn,
+      //   .loggedOut {
+      //     li {
+      //       transition: transform 0.5s;
+      //       &:hover {
+      //         transform: scale(1.2);
+      //       }
+      //       i {
+      //         display: inline;
+      //         color: $white;
+      //         font-size: 2rem;
+      //       }
+      //     }
+      //     p {
+      //       display: none;
+      //       margin: 0;
+      //     }
+      //   }
+      // }
     }
-
-    .hero .heroScreen {
+  }
+  
+  .hero {
+    background-image: url(./assets/heroPoolMobile.jpg);
+    .heroScreen {
       .wrapper {
         width: 300px;
         .heroContent {
           h2.heroHeading {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
           }
           p.heroCopy {
             text-align: center;
           }
           .btn {
             margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
+  }
+
+@media (max-width: 340px) {
+  header {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    nav {
+      justify-self: flex-end;
+      clear:both;
+      ul {
+        text-align:left;
+        .loggedIn,
+        .loggedOut {
+          li {
+            text-align:left;
+            margin:0;
+            i {
+              display: inline;
+              color: $white;
+              font-size: 2rem;
+            }
+          }
+          p {
+            display: none;
+            margin: 0;
           }
         }
       }

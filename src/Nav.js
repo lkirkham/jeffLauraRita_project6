@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import firebase from "./firebase";
 
 const provider = new firebase.auth.GoogleAuthProvider();
@@ -56,13 +56,13 @@ class Nav extends Component {
                 <div className="loggedIn">
                   <li>
                     <Link to="/" onClick={this.logout}>
-                      <i class="fas fa-sign-out-alt" />
+                      <i className="fas fa-sign-out-alt" />
                       <p onClick={this.logout}>Logout</p>
                     </Link>
                   </li>
                   <li>
                     <Link to={`/user/${this.state.user.uid}`}>
-                      <i class="fas fa-heart" />
+                      <i className="fas fa-heart" />
                       <p>My Cellar</p>
                     </Link>
                   </li>
@@ -70,7 +70,7 @@ class Nav extends Component {
               ) : (
                 <div className="loggedOut">
                   <li>
-                    <i onClick={this.login} class="fas fa-sign-in-alt" />
+                    <i onClick={this.login} className="fas fa-sign-in-alt" />
                     <p onClick={this.login}>Login</p>
                   </li>
                   {/* authentication ends */}

@@ -1,25 +1,22 @@
 .wineInfo {
   float: left;
-  min-height: calc(100vh - 100px);
+  min-height: calc(100vh - 110px);
   width: 100%;
-  header nav ul li p {
-    color: $green;
+  header {
+    h1{
+      color: $red;
+    }
+    nav ul li p {
+    color: $red;
   }
+}
   .wrapper {
     clear: both;
-    .locations {
-      width: 75%;
-      clear: both;
-      margin: 0 auto;
-      .storeInfo {
-        width: 33.3%;
-        float: left;
-        padding-bottom: 20px;
-      }
-    }
+    display:flex;
+    align-content: center;
 
     .imageWrapper {
-      float: left;
+      // float: left;
       width: 40%;
 
       img {
@@ -29,34 +26,44 @@
     }
 
     .content {
-      padding-bottom: 50px;
-      float: left;
+      // padding-bottom: 50px;
+      // float: left;
       width: 60%;
+      display:flex;
+      align-items:  center;
 
       .contentWrapper {
-        margin-top: 50px;
+
+        // margin-top: 50px;
         h1 {
-          font-family: "Lora", monospace;
+          // font-family: "Lora", monospace;
           color: $grey;
           margin: 15px 0;
         }
 
         .priceWrapper {
           p {
-            font-size: 3rem;
+            font-size: 2.8rem;
             margin: 0;
 
             .regular {
-              margin-right: 25px;
+              font-size: 3rem;
+              margin-right: 10px;
               text-decoration: line-through;
-              color: $purple;
-            }
-            .sale {
               color: $grey;
             }
-            .bottle {
-              font-size: 1.8rem;
+            .sale {
+              font-size: 3rem;
+              color: $red;
             }
+            // .bottle {
+            //   color: $red;
+            //   font-size: 1.8rem;
+            // }
+              span {
+                color: $red;
+                font-size: 70%;
+              }
           }
         }
 
@@ -65,17 +72,19 @@
         }
 
         .wineServingSuggestBox {
-          border: $teal 2px solid;
+          border: $turq 2px solid;
           border-radius: 2px;
           position: relative;
           width: 450px;
           .wineServingSuggestTitle {
-            font-size: 1rem;
+            font-size: 1.1rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
             text-transform: uppercase;
             background-color: #fff;
-            color: $teal;
+            color: $turq;
             position: absolute;
-            top: -22px;
+            top: -24px;
             left: 10px;
             padding: 5px;
           }
@@ -92,85 +101,113 @@
           color: $grey;
           margin: 15px 0;
           li {
+          font-family: "Work Sans", sans-serif;
             font-size: 1.4rem;
             span {
-              font-weight: bold;
+              font-weight: 700;
             }
-          }
-        }
-        .btn {
-          margin-right: 20px;
-          &:hover {
-            color: $teal;
-          }
-        }
-        .btnAlt {
-          margin-top: 10px;
-          background-color: transparent;
-          border: 2px solid $grey;
-          color: $grey;
-          &:hover {
-            background-color: $grey;
-            color: $white;
           }
         }
       }
     }
   }
-}
-
-.storeInfo {
-  p {
-    margin: 0;
-    font-size: 1.4rem;
-    span {
-      font-weight: bold;
+    .displayStock {
+      padding: 25px 0px;
+      // background-color: $lightgrey;
+      .wrapper {
+        display:flex;
+        flex-wrap: wrap;
+        .stockCard{
+          padding:20px;
+          flex: 0 0 calc(33% - 20px);
+          margin:10px;
+          background-color: white;
+          text-align: center;
+          border-radius: 2px;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+          &:hover {
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+            }
+          .storeInfo{
+            color:$grey;
+          }
+          p{
+            line-height: 1.5;
+            color: $grey;
+            i{
+              color: $red;
+            }
+            a{
+              color: $grey;
+              text-decoration: underline;
+              &:hover{
+                color: $turq;
+              }
+            }
+            span{
+              font-weight:900;
+            }
+          }
+        }
+      }
     }
-    a {
-      color: $green;
-      text-decoration: underline;
-    }
-  }
 }
 
 @media (max-width: 1080px) {
-  .wineInfo {
-    margin-bottom: 50px;
-  }
+  
 }
 
 /* Portrait tablet and small desktops */
 @media (max-width: 940px) {
   .wineInfo .wrapper .imageWrapper,
   .wineInfo .wrapper .content {
-    width: 55%;
+    width: 50%;
   }
   .wineInfo .wrapper .imageWrapper {
-    width: 45%;
+    width: 50%;
   }
 
   .wineInfo {
-    margin-bottom: 50px;
+    // margin-bottom: 50px;
   }
   .wineInfo .wrapper .content .contentWrapper .wineServingSuggestBox {
-    width: 350px;
+    width: 360px;
   }
 
   .wineInfo .wrapper .content .contentWrapper .btn {
-    margin-right: 10px;
+    margin-right: 5px;
   }
+
+  .wineInfo .displayStock {
+      margin-top: 50px;
+      .wrapper {
+        display:flex;
+        flex-wrap: wrap;
+        .stockCard{
+          flex: 0 0 calc(50% - 20px);
+          margin:10px;
+        }
+      }
 }
 
 /* Landscape phone to portrait tablet */
-@media (max-width: 768px) {
+@media (max-width: 868px) {
   .wineInfo {
-    float: none;
-    margin-bottom: 50px;
+    header nav ul li {
+      i {
+      color: $red;
+    }
+  }
     .wrapper {
+      display:flex;
+      flex-direction: column;
+      // padding:20px;
       .imageWrapper {
         float: none;
-        width: 50%;
+        // width: 100%;
         margin: 0 auto;
+        width:300px;
       }
       .content {
         float: none;
@@ -195,27 +232,119 @@
           }
           .wineServingSuggestBox {
             margin: 0 auto;
-            width: 450px;
+            width: 400px;
           }
         }
       }
     }
   }
+
+    .wineInfo .displayStock {
+      margin-top: 0px;
+      .wrapper {
+        display:flex;
+        flex-wrap: wrap;
+        // flex-direction: column;
+        .stockCard{
+          flex: 0 0 calc(100% - 20px);
+          margin:10px;
+          color: $turq;
+        }
+      }
+    }
+
 }
 
 /* Landscape phones and down */
 @media (max-width: 480px) {
   .wineInfo {
     header nav ul li i {
-      color: $green;
+      color: $red;
     }
-
-    .wrapper {
+    // .wrapper {
+    //   display:flex;
+    //   flex-direction: column;
+    //   padding:10px;
+    //   .imageWrapper {
+    //     float: none;
+    //     // width: 100%;
+    //     margin: 0 auto;
+    //     width:200px;
+    //   }
+    //   }
+        .wrapper {
+      display:flex;
+      flex-direction: column;
+      padding:10px;
+      .imageWrapper {
+        float: none;
+        // width: 100%;
+        margin: 0 auto;
+        width:200px;
+      }
       .content {
+        flex-direction: column;
+        width: 100%;
+        margin: 0 auto;
         .contentWrapper {
-          margin: 10px;
+          margin-top: 10px;
+          padding: 0 15px;
+          text-align: center;
           h1 {
-            font-size: 2.5rem;
+            margin: 15px 0;
+            text-align: center;
+          }
+          .priceWrapper {
+            p {
+              text-align: center;
+            }
+          }
+          .wineDescription {
+            text-align: center;
+          }
+          .wineServingSuggestBox {
+            margin: 0 auto;
+            width: 300px;
+          }
+        }
+      }
+    }
+  }
+}
+}
+
+@media (max-width: 330px){
+.wineInfo {
+   .wrapper {
+      display:flex;
+      flex-direction: column;
+      padding:10px;
+      .imageWrapper {
+        float: none;
+        // width: 100%;
+        margin: 0 auto;
+        width:150px;
+      }
+      .content {
+        flex-direction: column;
+        width: 100%;
+        margin: 0 auto;
+        .contentWrapper {
+          padding: 0 15px;
+          margin-top: 10px;
+          text-align: center;
+          h1 {
+            font-size: 2.8rem;
+            margin: 15px 0;
+            text-align: center;
+          }
+          .priceWrapper {
+            p {
+              text-align: center;
+            }
+          }
+          .wineDescription {
+            text-align: center;
           }
           .wineServingSuggestBox {
             margin: 0 auto;
@@ -223,6 +352,6 @@
           }
         }
       }
-    }
-  }
+}
+}
 }

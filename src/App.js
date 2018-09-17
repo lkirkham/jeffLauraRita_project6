@@ -10,12 +10,12 @@ import Wineinfo from "./Wineinfo";
 import SavedList from "./SavedList";
 import _ from "lodash";
 import firebase from "firebase";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route} from "react-router-dom";
 
 const apiUrl = "https://www.lcboapi.com/products";
 const apiKey =
   "MDpmNWYxNDQzNi1iNjJmLTExZTgtYWViNS1kYjliZGU4ZDQ1ZjU6VTNrZTZOa0NPZ0xKd1RudFdWVFZQbGxYWlhnbW1obkk5NVo4";
-const provider = new firebase.auth.GoogleAuthProvider();
+// const provider = new firebase.auth.GoogleAuthProvider();
 const auth = firebase.auth();
 
 class App extends Component {
@@ -115,7 +115,11 @@ class App extends Component {
         wineKey: item[0],
         wineImage: item[1].Wines.image_url,
         wineName: item[1].Wines.name,
-        wineId: item[1].Wines.id
+        wineId: item[1].Wines.id,
+        winePrice: `$${(item[1].Wines.price_in_cents / 100).toFixed(2)}`,
+        wineRegPrice: `$${(item[1].Wines.regular_price_in_cents / 100).toFixed(2)}`,
+        wineOnSale: item[1].Wines.has_limited_time_offer,
+        wineStyle: item[1].Wines.style,
       };
     });
     this.setState({
@@ -149,7 +153,7 @@ class App extends Component {
         );
       }
     });
-    const wineRequests = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(
+    const wineRequests = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(
       this.getWine
     );
     Promise.all(wineRequests).then(responses => {
@@ -163,7 +167,10 @@ class App extends Component {
         .filter(item => {
           return (
             item.name !==
-              "Castelli del Grevepesa Castelgreve Chianti Classico 2016" &&
+            "Castelli del Grevepesa Castelgreve Chianti Classico 2016" && 
+            item.name !==  
+            "G. Marquis the Red Line Sauvignon Blanc VQA"
+            &&
             item.price_in_cents < 2200 &&
             item.package_unit_volume_in_milliliters === 750 &&
             item.package_unit_type === "bottle"
@@ -181,6 +188,7 @@ class App extends Component {
               return item.price_in_cents > 600 && item.price_in_cents < 1000;
             })
             .map(response => {
+              console.log(response);
               return {
                 id: response.id,
                 colour: response.secondary_category,
@@ -188,7 +196,8 @@ class App extends Component {
                 price: `$${(response.price_in_cents / 100).toFixed(2)}`,
                 imgURL: response.image_url,
                 thumb: response.image_thumb_url,
-                onSale: response.has_limited_time_offer
+                onSale: response.has_limited_time_offer,
+                style: response.style,
               };
             });
           const userChoice = fullArray
@@ -203,7 +212,8 @@ class App extends Component {
                 price: `$${(response.price_in_cents / 100).toFixed(2)}`,
                 imgURL: response.image_url,
                 thumb: response.image_thumb_url,
-                onSale: response.has_limited_time_offer
+                onSale: response.has_limited_time_offer,
+                style: response.style,
               };
             });
           const $$all = fullArray
@@ -218,7 +228,8 @@ class App extends Component {
                 price: `$${(response.price_in_cents / 100).toFixed(2)}`,
                 imgURL: response.image_url,
                 thumb: response.image_thumb_url,
-                onSale: response.has_limited_time_offer
+                onSale: response.has_limited_time_offer,
+                style: response.style,
               };
             });
           const $$$all = fullArray
@@ -233,7 +244,8 @@ class App extends Component {
                 price: `$${(response.price_in_cents / 100).toFixed(2)}`,
                 imgURL: response.image_url,
                 thumb: response.image_thumb_url,
-                onSale: response.has_limited_time_offer
+                onSale: response.has_limited_time_offer,
+                style: response.style,
               };
             });
           const $$$$all = fullArray
@@ -248,7 +260,8 @@ class App extends Component {
                 price: `$${(response.price_in_cents / 100).toFixed(2)}`,
                 imgURL: response.image_url,
                 thumb: response.image_thumb_url,
-                onSale: response.has_limited_time_offer
+                onSale: response.has_limited_time_offer,
+                style: response.style,
               };
             });
           this.setState(
@@ -275,7 +288,8 @@ class App extends Component {
                   price: response.price,
                   imgURL: response.imgURL,
                   thumb: response.thumb,
-                  onSale: response.onSale
+                  onSale: response.onSale,
+                  style: response.style,
                 };
               });
 
@@ -289,7 +303,8 @@ class App extends Component {
                   price: response.price,
                   imgURL: response.imgURL,
                   thumb: response.thumb,
-                  onSale: response.onSale
+                  onSale: response.onSale,
+                  style: response.style,
                 };
               });
 
@@ -303,7 +318,8 @@ class App extends Component {
                   price: response.price,
                   imgURL: response.imgURL,
                   thumb: response.thumb,
-                  onSale: response.onSale
+                  onSale: response.onSale,
+                  style: response.style,
                 };
               });
 
@@ -317,7 +333,8 @@ class App extends Component {
                   price: response.price,
                   imgURL: response.imgURL,
                   thumb: response.thumb,
-                  onSale: response.onSale
+                  onSale: response.onSale,
+                  style: response.style,
                 };
               });
 
@@ -331,7 +348,8 @@ class App extends Component {
                   price: response.price,
                   imgURL: response.imgURL,
                   thumb: response.thumb,
-                  onSale: response.onSale
+                  onSale: response.onSale,
+                  style: response.style,
                 };
               });
 
@@ -345,7 +363,8 @@ class App extends Component {
                   price: response.price,
                   imgURL: response.imgURL,
                   thumb: response.thumb,
-                  onSale: response.onSale
+                  onSale: response.onSale,
+                  style: response.style,
                 };
               });
 
@@ -359,7 +378,8 @@ class App extends Component {
                   price: response.price,
                   imgURL: response.imgURL,
                   thumb: response.thumb,
-                  onSale: response.onSale
+                  onSale: response.onSale,
+                  style: response.style,
                 };
               });
 
@@ -373,7 +393,8 @@ class App extends Component {
                   price: response.price,
                   imgURL: response.imgURL,
                   thumb: response.thumb,
-                  onSale: response.onSale
+                  onSale: response.onSale,
+                  style: response.style,
                 };
               });
 

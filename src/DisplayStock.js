@@ -7,21 +7,20 @@ class DisplayStock extends Component {
       <div className="wrapper">
         {this.props.arrayOfStock.map(store => {
           return (
-            <div className="card stockCard">
-            <div className="storeInfo" key={store.storeId}>
-              <h3>{store.storeName} LCBO</h3>
+            <div className="stockCard" key={store.storeId}>
+            <div className="storeInfo">
+              <h3>{store.storeName} <br />LCBO</h3>
               <p>
                 {store.stockAmount} bottles available
               </p>
               <p>
-                <span>Address: </span>
+                  <span><i class="fas fa-map-marker-alt"></i> </span>
                 <a href={`https://www.google.ca/maps/place/${store.storeAddress}`} target="_blank">
                   {store.storeAddress}
                 </a>
-              </p>
-              <p>
-                <span>Phone Number: </span>
-                <a href={`tel:${store.storeAddress}`}>
+                  <br />
+                <span><i class="fas fa-phone"></i> </span>
+                <a href={`tel:${store.storePhoneNumber}`}>
                   {store.storePhoneNumber}
                 </a>
               </p>

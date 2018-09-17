@@ -1,9 +1,15 @@
 // colours //
-$green: #0b664c;
+// $green: #0b664c;
 $teal: #a1d1ce;
 $purple: #dd9afc;
+
+
+$red: #fd5c00;
+$turq: #03b6bc;
+$green: #006860;
 $white: #ffffff;
 $grey: #4a4a4a;
+$lightgrey: #a4a4a4;
 
 html {
   font-size: 62.5%;
@@ -23,61 +29,91 @@ img {
   margin-top: 10px;
   width: 180px;
   padding: 15px 0px;
-  background-color: $teal;
-  border: 2px solid $teal;
+  background-color: $red;
+  border: 2px solid $white;
   border-radius: 2px;
   color: $white;
   font-weight: 700;
   transition: transform 0.5s;
   &:hover {
-    background-color: transparent;
-    color: $teal;
-  }
-}
-
-.smallBtn {
-  transition: transform 0.5s;
-  font-weight: 700;
-  border-radius: 2px;
-  margin-top: 20px;
-  padding: 10px;
-  width: 125px;
-}
-
-.deleteBtn {
-  margin: 0;
-  background-color: transparent;
-  border: 2px solid $grey;
-  color: $grey;
-  transition: transform 0.5s;
-  font-weight: 700;
-  border-radius: 2px;
-  margin-top: 10px;
-  padding: 10px;
-  width: 125px;
-  &:hover {
-    background-color: $grey;
+    // background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.5);
     color: $white;
+    border: 2px solid $white;
   }
 }
 
-.cellarBtn {
-  // margin-top: 5px;
-  // padding: 8px;
-  margin: 0;
-  background-color: $teal;
-  border: 2px solid $teal;
-  color: $white;
-  transition: transform 0.5s;
-  font-weight: 700;
+.btnLightBg {
+  margin-top: 10px;
+  width: 180px;
+  padding: 15px 0px;
+  background-color: $red;
+  border: 2px solid $white;
   border-radius: 2px;
-  padding: 10px;
-  width: 125px;
+  color: $white;
+  font-weight: 700;
+  transition: transform 0.5s;
   &:hover {
-    background-color: transparent;
-    color: $teal;
+    // background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: $red;
+    border: 2px solid $red;
   }
 }
+
+.btnAltLightBg {
+  margin-top: 10px;
+  width: 180px;
+  padding: 15px 0px;
+  background-color: $turq;
+  border: 2px solid $white;
+  border-radius: 2px;
+  color: $white;
+  font-weight: 700;
+  transition: transform 0.5s;
+  &:hover {
+    // background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: $turq;
+    border: 2px solid $turq;
+  }
+}
+
+.btnInvert {
+  margin-top: 10px;
+  width: 180px;
+  padding: 15px 0px;
+  background-color: transparent;
+  border: 2px solid $red;
+  border-radius: 2px;
+  color: $red;
+  font-weight: 700;
+  transition: transform 0.5s;
+  &:hover {
+    // background-color: transparent;
+    background-color: $red;
+    color: $white;
+    border: 2px solid $white;
+  }
+}
+
+.swal-button {
+  padding: 7px 19px;
+  border-radius: 2px;
+  background-color: $turq;
+  font-size: 12px;
+  border: 1px solid $turq;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+}
+
+.swal-overlay {
+  // background-color: rgba(253, 92, 0, 0.8);
+  // background-color: rgba(3, 182, 188, 0.45);
+  background-color: rgba(74, 74, 74, 0.7);
+}
+
+
+
 
 ///////////////////////////////////////////////
 //GLOBAL MEDIA QUERIES

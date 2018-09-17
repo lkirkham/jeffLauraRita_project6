@@ -1,15 +1,18 @@
 // google fonts //
-@import url("https://fonts.googleapis.com/css?family=Lora:700|Oxygen:400,700");
+@import url("https://fonts.googleapis.com/css?family=Lora:700|Montserrat:400,700");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:900|Work+Sans:300,700");
 
 // font mixins //
 @mixin headingFont($fontSize) {
   font-size: $fontSize;
-  font-family: "Lora", monospace;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
 }
 
 @mixin bodyFont($fontSize) {
   font-size: $fontSize;
-  font-family: "Oxygen", monospace;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 300;
 }
 
 @mixin lineHeight($lineHeight) {
@@ -18,7 +21,7 @@
 
 // headings //
 h1 {
-  @include bodyFont(4rem);
+  @include headingFont(4rem);
 }
 
 h2 {
@@ -34,10 +37,11 @@ h3 {
 p {
   @include bodyFont(1.6rem);
   color: $grey;
+  line-height: 1.25;
 }
 
 .btn {
-  @include bodyFont(1.4rem);
+  @include headingFont(1.4rem);
   text-transform: uppercase;
 }
 
@@ -55,9 +59,9 @@ a {
 }
 
 nav li p {
-    @include bodyFont(1.6rem);
+    @include headingFont(1.8rem);
     text-transform:uppercase;
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 900;
     color:white;
 }

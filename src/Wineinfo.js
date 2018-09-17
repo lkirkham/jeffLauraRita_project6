@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import Qs from "qs";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import firebase from "firebase";
+// import { Link } from "react-router-dom";
+// import firebase from "firebase";
 import swal from "sweetalert";
 import DisplayStock from "./DisplayStock";
 import Nav from "./Nav";
 
-const auth = firebase.auth();
+// const auth = firebase.auth();
 const apiKey =
   "MDpmNWYxNDQzNi1iNjJmLTExZTgtYWViNS1kYjliZGU4ZDQ1ZjU6VTNrZTZOa0NPZ0xKd1RudFdWVFZQbGxYWlhnbW1obkk5NVo4";
 
@@ -46,18 +46,18 @@ class Wineinfo extends Component {
   // Sweet Alerts
   addToFavs = () => {
     swal(
-      "Added To Your Cellar!",
-      "Visit your cellar to see all your wines.",
-      "success"
+      "This wine has been cellared.",
+      "Visit your cellar to see all your favourite wines.",
+      // "success"
     );
     this.props.favourites(this.state.wine);
   };
 
   addToError = () => {
     swal(
-      "Oops, you must log in!",
+      "Oops, the cellar is locked.",
       "Please login to add to your cellar.",
-      "error"
+      // "error"
     );
   };
 
@@ -74,7 +74,7 @@ class Wineinfo extends Component {
         reqUrl: 'https://www.lcboapi.com/stores',
         params: {
           access_key: apiKey,
-          per_page: 5,
+          per_page: 6,
           lat: `${this.state.latitude}`,
           lon: `${this.state.longitude}`,
         },
@@ -180,7 +180,7 @@ class Wineinfo extends Component {
           <div className="content">
             <div className="contentWrapper">
               <h1>{this.state.wine.name}</h1>
-              {this.state.wine.price_in_cents == this.state.wine.regular_price_in_cents ? <div className="priceWrapper">
+              {this.state.wine.price_in_cents === this.state.wine.regular_price_in_cents ? <div className="priceWrapper">
                   <p>
                     {`$${this.state.wine.price_in_cents / 100}`}
                     <span>/bottle</span>
@@ -192,15 +192,17 @@ class Wineinfo extends Component {
                     <span className="bottle">/bottle</span>
                   </p>
                 </div>}
+            {this.state.wine.tasting_note !== null ?
               <p className="wineDescription">{`${this.state.wine.tasting_note}`}</p>
+              : null}
+              {this.state.wine.serving_suggestion !== null ?
               <div className="wineServingSuggestBox">
-                {this.state.wine.serving_suggestion !== null ? <div>
                     <p className="wineServingSuggestTitle">
                       Serving Suggestion
                     </p>
                     <p className="wineServingSuggest">{`${this.state.wine.serving_suggestion}`}</p>
-                  </div> : null}
-              </div>
+                
+            </div> : null}
               <ul>
                 <li>
                   <span>Size: </span>
@@ -215,21 +217,22 @@ class Wineinfo extends Component {
                   {`${this.state.wine.alcohol_content / 100}%`}
                 </li>
               </ul>
-              {this.props.user ? <button onClick={this.addToFavs} className="btn btnAlt">
-                  <i class="fas fa-plus" /> Add to Cellar
-                </button> : <button onClick={this.addToError} className="btn btnAlt">
-                  <i class="fas fa-plus" /> Add to Cellar
+              {this.props.user ? <button onClick={this.addToFavs} className="btn btnAltLightBg">
+                  <i className="fas fa-plus" /> Add to Cellar
+                </button> : <button onClick={this.addToError} className="btn btnAltLightBg">
+                  <i className="fas fa-plus" /> Add to Cellar
                 </button>}
-              <button onClick={this.geolocation} className="btn">
-                <i class="fas fa-map-marker-alt" /> Find near me
+              <button onClick={this.geolocation} className="btn btnLightBg">
+                <i className="fas fa-map-marker-alt" /> Find near me
               </button>
             </div>
             {/* closes content wrapper */}
-            {/* <DisplayStock arrayOfStock={this.state.arrayOfStock} /> */}
           </div>
           {/* closes content */}
-          <DisplayStock arrayOfStock={this.state.arrayOfStock} />
         </div>
+        {/* <div className="locationList"> */}
+        <DisplayStock arrayOfStock={this.state.arrayOfStock} />
+        {/* </div> */}
       </div>;
   }
 }
