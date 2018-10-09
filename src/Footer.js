@@ -10,7 +10,15 @@ render(){
         <i className="fab fa-twitter-square" />
       </div>
       <div className="createdBy">
-        <p>Created by Jeff Lee, Laura Kirkham and Rita Solo</p>
+        <p>
+          Created by <a href="http://www.jeffleecodes.ca" target="_blank">
+            Jeff Lee
+          </a>, <a href="http://www.lkirkham.com" target="_blank">
+            Laura Kirkham
+          </a> & <a href="http://www.ritasolo.com" target="_blank">
+            Rita Solo
+          </a>
+        </p>
       </div>
     </footer>;
 }

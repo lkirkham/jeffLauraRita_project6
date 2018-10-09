@@ -324,7 +324,7 @@ class App extends Component {
               });
 
               const $$white = $$.filter(item => {
-                return item.colour === "Red Wine";
+                return item.colour === "White Wine";
               }).map(response => {
                 return {
                   id: response.id,

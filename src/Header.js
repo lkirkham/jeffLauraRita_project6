@@ -25,17 +25,16 @@ class Header extends Component {
     });
   }
   render() {
-    return (
-      <div className="headerSection clearfix">
+    return <div className="headerSection clearfix">
         <Nav user={this.state.user} appstate={this.props.appstate} />
         <section className="hero">
           <div className="heroScreen">
             <div className="wrapper">
               <div className="heroContent">
-                <h2 className="heroHeading">
-                  Lorem ipsum dolor sit amet, lorem noluisse.{" "}
-                </h2>
-                <p className="heroCopy">Find your next bottle for under $22</p>
+                <h2 className="heroHeading">'Cause sometimes you just need the cheapest wine out there.</h2>
+                <p className="heroCopy">
+                  Find your next bottle for under $22
+                </p>
                 <button onClick={this.scrollTo} className="btn">
                   Find Plonk
                 </button>
@@ -43,8 +42,7 @@ class Header extends Component {
             </div>
           </div>
         </section>
-      </div>
-    );
+      </div>;
   }
 }
 
